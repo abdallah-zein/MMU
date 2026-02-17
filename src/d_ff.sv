@@ -2,8 +2,8 @@ module ff (clk, rst_n, d, flush, q);
     input clk;
     input rst_n;
     input flush;
-    input [15:0] d;
-    output reg [15:0] q;
+    input [31:0] d;
+    output reg [31:0] q;
 
    always @(posedge clk or negedge rst_n) begin
         if (!rst_n) 
