@@ -1,13 +1,13 @@
 module adder_tree #(parameter N=12, parameter K=15)(in,sum);
 
 input  [K-1:0] in [0:N-1];
-output [K+$clog2(N)-1:0] sum;
+output [K-1:0] sum;
 
 //number of stages
 localparam stages = $clog2(N);
 
 //declaration of stage's adder inputs
-wire [K+$clog2(N)-1:0] stage_in [0:stages][0:N-1];
+wire [K-1:0] stage_in [0:stages][0:N-1];
 
 //assign inputs to first stage
 genvar i,level;
