@@ -41,7 +41,7 @@ always_comb begin
             if (op_code[2])             // 2nd layer
                 count_mod = count_mod * 4;
         end
-        3'd3: count_mod = 2;            // SxV -> ثابت في كل الـستيجس
+        3'd3: count_mod = 2;            // SxV -> ???? ??? ?? ????????
     endcase
 end
 
@@ -66,13 +66,14 @@ always_ff @(posedge clk or negedge rst_n) begin
             if (busy && counter == count_mod-1) begin
                 valid_out <= 1;
                 counter   <= 0;
+                busy      <= 0;
                 if (valid_in) begin
                     counter    <= 0;
                     busy       <= 1;
                 end
-                else begin
-                    busy <= 0;
-                end
+                // else begin
+                //     busy <= 0;
+                // end
             end
             // counting
             else if (busy) begin
@@ -84,6 +85,8 @@ always_ff @(posedge clk or negedge rst_n) begin
                 end
             end
         end
+        else
+            busy    <=0;
     end
 end
  // Flsuher logic
