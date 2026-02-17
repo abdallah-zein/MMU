@@ -11,8 +11,8 @@ module mmu_top (
     // MMU data
     input  logic [7:0]  mmu_in   [0:11][0:6][0:3],
     input  logic [7:0]  mmu_w    [0:11][0:3],
-    input  logic [15:0] mmu_bias [0:11][0:6],
-    output logic [18:0] mmu_out  [0:6]
+    input  logic [31:0] mmu_bias [0:11],
+    output logic [31:0] mmu_out  [0:6]
 );
     wire flush;
     // ----------------------------
